@@ -9,7 +9,7 @@ public class TestThreadCheckArray {
 			int [] array = new int[num];
 			System.out.println("Enter numbers for array");
 			
-			for (int index = 0; index < num; index++) 
+			for (int index = 0; index < num; index++) //bla bla
 				array[index] = input.nextInt();
 			
 			System.out.println("Enter number");// This is a change to be committed
