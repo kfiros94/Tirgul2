@@ -1,3 +1,4 @@
+import java.util.ArrayList; // Added import for ArrayList
 import java.util.Scanner;
 
 public class TestThreadCheckArray {
@@ -6,16 +7,16 @@ public class TestThreadCheckArray {
 			Thread thread1, thread2;
 			System.out.println("Enter array size");
 			int num  = input.nextInt();
-			int [] array = new int[num];
-			System.out.println("Enter numbers for array");//eoivWHIO[VI	nhb[ijeqbijqerbjijb]oj]
+			ArrayList<Integer> array = new ArrayList<>(num); // Changed int[] to ArrayList<Integer>
+			System.out.println("Enter numbers for array");
 			
 			for (int index = 0; index < num; index++) 
-				array[index] = input.nextInt();
+				array.add(input.nextInt()); // Changed array[index] = input.nextInt() to array.add(input.nextInt())
 			
 			System.out.println("Enter number");
 			num = input.nextInt();
 			
-			SharedData sd = new SharedData(array, num);
+			SharedData sd = new SharedData(array, num); // Changed parameter type from int[] to ArrayList<Integer>
 			
 			thread1 = new Thread(new ThreadCheckArray(sd), "thread1");
 			thread2 = new Thread(new ThreadCheckArray(sd), "thread2");
@@ -35,28 +36,29 @@ public class TestThreadCheckArray {
 				System.out.println("Sorry");
 				return;
 			}
-			System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().length);
+			System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().size()); // Changed length to size()
 			System.out.print("I:    ");
-			for(int index = 0; index < sd.getArray().length ; index++)
+			for(int index = 0; index < sd.getArray().size(); index++) // Changed length to size()
 				System.out.print(index + "    ");
 			System.out.println();
 			System.out.print("A:    ");
-			for (int index : sd.getArray())
-			{
-				System.out.print(index);
-				int counter = 5;
-				while (true)
-				{
-					index = index / 10;
-					counter--;
-					if (index == 0)
-						break;
-				}
-				for (int i = 0; i < counter; i++)
-					System.out.print(" ");
-			}
-
+			for(int val : sd.getArray()) // Changed array iteration
+				System.out.print(val + "    ");
 			System.out.println();
+//			//System.out.print("B:    ");
+//			int counter = 0;
+//			for (int index = sd.getB(); index != 0; index /= 10)
+//				counter++;
+//			for (int index = 0; index < sd.getArray().size(); index++) // Changed length to size()
+//			{
+//				System.out.print(sd.getArray().get(index)); // Changed array access from array[index] to array.get(index)
+//				for (int i = sd.getArray().get(index); i != 0; i /= 10) // Changed array access from array[index] to array.get(index)
+//					counter--;
+//				if (counter == 0)
+//					break;
+//				System.out.print(" ");
+//			}
+//			System.out.println();
 			System.out.print("C:    ");
 			for (boolean index : sd.getWinArray())
 			{
@@ -67,5 +69,4 @@ public class TestThreadCheckArray {
 			}
 		}
 	}
-
 }

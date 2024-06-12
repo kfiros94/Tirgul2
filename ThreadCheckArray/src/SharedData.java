@@ -1,12 +1,13 @@
+import java.util.ArrayList; // Added import for ArrayList
+
 public class SharedData 
 {
-	private int [] array;
+	private ArrayList<Integer> array; // Changed int[] to ArrayList<Integer>
 	private boolean [] winArray;
 	private boolean flag;
 	private final int b;
 	
-	public SharedData(int[] array, int b) {
-		
+	public SharedData(ArrayList<Integer> array, int b) { // Changed int[] to ArrayList<Integer>
 		this.array = array;
 		this.b = b;
 	}
@@ -21,7 +22,7 @@ public class SharedData
 		this.winArray = winArray;
 	}
 
-	public int[] getArray() 
+	public ArrayList<Integer> getArray()  // Changed return type from int[] to ArrayList<Integer>
 	{
 		return array;
 	}
@@ -39,5 +40,4 @@ public class SharedData
 	public void setFlag(boolean flag) {
 		this.flag = flag;
 	}
-
 }
