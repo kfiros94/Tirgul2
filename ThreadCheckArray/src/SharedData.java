@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 
 
 /**Class SharedData encapsulate and manage a collection of shared data between two threads
@@ -16,10 +17,36 @@ public class SharedData
 	/**array of the winning thread numbers.**/
 	private boolean [] winArray;
 	/**flag that indicates that the other thread is the winner.**/
+=======
+public class SharedData 
+{
+	
+	private ArrayList<Integer> array;
+	//private Integer[] array;//כאן שיניתי
+	private boolean [] winArray;//שיניתי
+>>>>>>> 25e969df2feec5e2cd76398da2dce8112bdefb65
 	private boolean flag;
 	/**The number that we search a sub series equals to it **/
 	private final int b;
 	
+<<<<<<< HEAD
+=======
+	public SharedData(ArrayList<Integer> array, int b) {
+	    this.b = 0;
+		this.array = array;
+	    //this.num = num;
+	    this.flag = false;
+	    this.winArray = new boolean[array.size()];
+	}
+	
+	
+	//public SharedData(Integer[] array, int b) // כאן שיניתי
+	//{
+		
+		//this.array = array;
+		//this.b = b;
+	//}
+>>>>>>> 25e969df2feec5e2cd76398da2dce8112bdefb65
 
 	/**
 	 * Constructor for the SharedData class.
@@ -64,6 +91,7 @@ public class SharedData
 		this.winArray = winArray;
 	}
 
+<<<<<<< HEAD
 	
 	/**
 	 * Gets the ArrayList of Integer objects.
@@ -72,17 +100,28 @@ public class SharedData
 	 * @return the ArrayList of Integer objects.
 	 */
 	public ArrayList<Integer> getArray() 
+=======
+	public ArrayList<Integer> getArray() // כאן שיניתי
+>>>>>>> 25e969df2feec5e2cd76398da2dce8112bdefb65
 	{
 		return array;
 	}
 	
 	
+<<<<<<< HEAD
 	
 	 /**
      * Gets the final integer b.
      *
      * @return the integer b.
      */
+=======
+	//public Integer[] getArray() // המקור
+	//{
+		//return array;
+	//}
+
+>>>>>>> 25e969df2feec5e2cd76398da2dce8112bdefb65
 	public int getB() 
 	{
 		return b;
